@@ -1,6 +1,10 @@
-# simple-jsonstream
+simple-jsonstream
+=================
 
-Need to output a stream of objects as a JSON array?
+A simple transform stream to output a valid JSON array
+
+
+**Need to output a stream of objects as a JSON array?**
 
 ```javascript
 var JSONStream = require('simple-jsonstream');
