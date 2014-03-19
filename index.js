@@ -1,5 +1,5 @@
-var stream           = require('stream');
-var util             = require('util');
+var stream  = require('stream');
+var util    = require('util');
 
 function JSONStream() {
     stream.Transform.call(this, {objectMode: true});
@@ -29,7 +29,11 @@ JSONStream.prototype._transform = function (instance, __, done) {
 
 // end the json array
 JSONStream.prototype._flush = function (done) {
-    this.push(']');
+    if (!this.started) {
+        this.push('[]');
+    } else {
+        this.push(']');
+    }
     done();
 };
 
