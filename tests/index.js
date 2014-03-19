@@ -32,5 +32,14 @@ module.exports = {
             test.done();
         });
         stream.end();
+    },
+    "source end without data sends []": function (test) {
+        var stream = new JSONStream();
+        test.expect(1);
+        stream.once('data', function (data) {
+            test.equal(String(data), '[]');
+            test.done();
+        });
+        stream.end();
     }
 };
