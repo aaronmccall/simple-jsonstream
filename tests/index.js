@@ -41,5 +41,10 @@ module.exports = {
             test.done();
         });
         stream.end();
-    }
+    },
+    "redable end is not in object mode": function(test) {
+        var stream = new JSONStream();
+        test.equal(stream._readableState.objectMode, false);
+        test.done();
+    },
 };
