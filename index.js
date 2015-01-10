@@ -2,7 +2,9 @@ var stream  = require('stream');
 var util    = require('util');
 
 function JSONStream() {
-    stream.Transform.call(this, {objectMode: true});
+    stream.Transform.call(this);
+    this._writableState.objectMode = true;
+    this._readableState.objectMode = false;
 }
 util.inherits(JSONStream, stream.Transform);
 
